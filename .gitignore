@@ -39,3 +39,5 @@ build
 
 # Packages for testing
 test/packages
+
+.idea
