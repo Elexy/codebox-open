@@ -97,17 +97,17 @@
     "tabs": "CodeboxIDE/package-tabs",
     "editor": "CodeboxIDE/package-editor",
     "editorsync": "CodeboxIDE/package-editorsync",
-    "terminal": "CodeboxIDE/package-terminal",
+    "terminal": "tianmaying/package-terminal",
     "pkgcontrol": "CodeboxIDE/package-pkgcontrol",
     "statusbar": "CodeboxIDE/package-statusbar",
     "watcher": "CodeboxIDE/package-watcher",
     "panels": "CodeboxIDE/package-panels",
     "find": "CodeboxIDE/package-find",
-    "git": "CodeboxIDE/package-git",
+    "git": "tianmaying/package-git",
     "settings": "CodeboxIDE/package-settings",
     "menubar": "CodeboxIDE/package-menubar",
     "image": "CodeboxIDE/package-image",
-    "ctags": "CodeboxIDE/package-ctags"
+    "ctags": "tianmaying/package-ctags"
   },
   "scripts": {
     "test": "export TESTING=true; mocha --reporter list"

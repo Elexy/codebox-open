@@ -60,6 +60,13 @@ then export `LIBRARY_PATH` to its lib directory.
 export LIBRARY_PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.5.sdk/usr/lib
 ```
 
+#### 需要修改的插件
+
+* ctags: 将`ctags`依赖版本改为`3.0.0`
+* terminal: 将`shux`依赖改为`github:tianmaying/shux`
+* git: 将`gittle`依赖改为`github:tianmaying/gittle.js`;将`pty.js`依赖改为`0.3.0`
+
+
 #### Need help?
 
 The IDE's documentation can be found at [help.codebox.io](http://help.codebox.io). Feel free to ask any questions or signal problems by adding issues.
