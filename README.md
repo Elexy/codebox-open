@@ -51,6 +51,15 @@ Others comand line options are available and can be list with: ```codebox --help
 -p, --port [port]       HTTP port
 ```
 
+#### Install from MacOSX
+
+In case `node-gyp` don't compile, you need to download MacOSX SDK10.5, 
+then export `LIBRARY_PATH` to its lib directory.
+
+```
+export LIBRARY_PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.5.sdk/usr/lib
+```
+
 #### Need help?
 
 The IDE's documentation can be found at [help.codebox.io](http://help.codebox.io). Feel free to ask any questions or signal problems by adding issues.
