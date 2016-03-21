@@ -12,7 +12,7 @@ var workspace = require("./workspace");
 var CodeboxApplication = Application.extend({
     el: null,
     className: "main-application",
-    name: "Codebox",
+    name: "Powered by Codebox",
     events: {},
     routes: {},
 
