@@ -30,6 +30,7 @@ program
 .command('run [root]')
 .description('run codebox')
 .option('-t, --templates [list]', 'Configuration templates, separated by commas', "")
+.option('-n, --address [address]', 'HTTP address', '127.0.0.1')
 .option('-p, --port [port]', 'HTTP port', 3000)
 .option('-o, --open', 'Open the IDE in your favorite browser')
 .option('-e, --email [email address]', 'Email address to use as a default authentication')
@@ -43,6 +44,7 @@ program
     // Generate configration
     var options = {
         root: path.resolve(process.cwd(), root || "./"),
+        address: opts.address,
         port: opts.port,
         auth: {
             users: opts.users
