@@ -1,12 +1,4 @@
-FROM ubuntu:14.04
-
-RUN apt-get update && \
-        apt-get install -y make g++ python git curl && \
-        curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash - && \
-        apt-get install -y nodejs
-
-RUN echo "registry=https://registry.npm.taobao.org" > /root/.npmrc
-RUN npm install -g gulp
+FROM luoruici/node-base
 
 RUN mkdir -p /root/.codebox/packages
 
