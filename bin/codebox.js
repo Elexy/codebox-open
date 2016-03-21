@@ -32,6 +32,10 @@ program
 .option('-t, --templates [list]', 'Configuration templates, separated by commas', "")
 .option('-n, --address [address]', 'HTTP address', '127.0.0.1')
 .option('-p, --port [port]', 'HTTP port', 3000)
+.option('--redis-host [redisHost]', 'Redis host', '127.0.0.1')
+.option('--redis-port [redisPort]', 'Redis port', 6379)
+.option('--cookie-domain [cookieDomain]', 'Cookie Domain', '127.0.0.1')
+.option('--cookie-secret [cookieSecret]', 'Cookie Secret', 'hello! TMY')
 .option('-o, --open', 'Open the IDE in your favorite browser')
 .option('-e, --email [email address]', 'Email address to use as a default authentication')
 .option('-u, --users [list users]', 'List of coma seperated users and password (formatted as "username:password")', function (val) {
@@ -46,6 +50,14 @@ program
         root: path.resolve(process.cwd(), root || "./"),
         address: opts.address,
         port: opts.port,
+        cookie: {
+            domain: opts.cookieDomain || process.env.COOKIE_DOMAIN,
+            secret: opts.cookieSecret || process.env.COOKIE_SECRET
+        },
+        redis: {
+            host: opts.redisHost || process.env.REDIS_HOST,
+            port: opts.redisPort || process.env.REDIS_PORT
+        },
         auth: {
             users: opts.users
         }
