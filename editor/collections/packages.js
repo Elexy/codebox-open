@@ -23,7 +23,7 @@ var Packages = Collection.extend({
         var errors = [];
 
         if (bundle) {
-            return Q($.getScript("/packages.js"));
+            return Q($.getScript("packages.js"));
         } else {
             return this.listAll()
             .then(function() {
