@@ -51,12 +51,12 @@ program
         address: opts.address,
         port: opts.port,
         cookie: {
-            domain: opts.cookieDomain || process.env.COOKIE_DOMAIN,
-            secret: opts.cookieSecret || process.env.COOKIE_SECRET
+            domain: process.env.COOKIE_DOMAIN || opts.cookieDomain,
+            secret: process.env.COOKIE_SECRET || opts.cookieSecret
         },
         redis: {
-            host: opts.redisHost || process.env.REDIS_HOST,
-            port: opts.redisPort || process.env.REDIS_PORT
+            host: process.env.REDIS_HOST || opts.redisHost,
+            port: process.env.REDIS_PORT || opts.redisPort
         },
         auth: {
             users: opts.users
