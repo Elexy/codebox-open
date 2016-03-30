@@ -1,0 +1,38 @@
+#!/bin/bash
+
+set -e
+
+currentPath=$(pwd)
+deployDir="/deploy"
+tomcatDir="/tomcat"
+appDir=${APP_DIR:-$(pwd)}
+
+cd ${deployDir}
+rm -rf ${deployDir}/tmp
+cp -r ${appDir} ${deployDir}/tmp
+
+if [ ! -e ${deployDir}/tmp/WebContent ]; then                                                                                                   
+  if [ -e ${deployDir}/tmp/WebRoot ]; then                                                                                                      
+    mv ${deployDir}/tmp/WebRoot ${deployDir}/tmp/WebContent                                                                                     
+  fi                                                                                                                                            
+fi
+if [ ! -f ${deployDir}/tmp/pom.xml ]; then
+  cp ${deployDir}/pom.xml ${deployDir}/tmp/
+fi
+if [ ! -f ${deployDir}/tmp/WebContent/WEB-INF/web.xml ]; then
+  mkdir -p ${deployDir}/tmp/WebContent/WEB-INF/
+  cp ${deployDir}/web.xml ${deployDir}/tmp/WebContent/WEB-INF/
+fi
+
+mvn clean package -f ${deployDir}/tmp
+rm -rf ${tomcatDir}/tianmaying/ROOT.war
+rm -rf ${tomcatDir}/tianmaying/ROOT
+cp ${deployDir}/tmp/target/*.war ${tomcatDir}/tianmaying/ROOT.war
+
+pid=$(ps x | grep "${tomcatDir}" | grep -v grep | cut -d '' -f 1)
+if [ "${pid}" ]; then
+  ${tomcatDir}/bin/catalina.sh stop
+fi
+${tomcatDir}/bin/catalina.sh start
+
+cd ${currentPath}
