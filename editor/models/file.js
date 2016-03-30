@@ -313,7 +313,7 @@ var File = Model.extend({
                 });
                 data.append("content", blob, path.basename(filename));
 
-                return Q(axios.put('/rpc/fs/upload', data));
+                return Q(axios.put('rpc/fs/upload', data));
             } else {
                 opts.path = filename;
                 opts.content = _content;

@@ -51,7 +51,6 @@ commands.register({
 logger.log("start application");
 Q.delay(500)
 .then(function() {
-    console.log('title = ', codebox.workspace.get('title'));
     return Q.all([
         codebox.user.whoami(),
         codebox.root.stat('./'),
